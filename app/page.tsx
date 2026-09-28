@@ -56,16 +56,12 @@ export default function Page() {
       </header>
 
       <section className="hero section-shell">
-        <div className="hero-content">
-          <p className="kicker"><span>01</span> SOFTWARE / AI / SYSTEMS</p>
-          <h1>LIKITHA<br /><em>REDDY</em></h1>
-          <p className="role">Software Developer <b>·</b> AI Researcher</p>
-          <p className="hero-description">I build practical software and explore intelligent systems at the intersection of backend engineering, AI, and modern web technologies.</p>
-          <div className="hero-actions"><a className="primary-button" href="#projects">VIEW PROJECTS <span>↘</span></a><a className="secondary-button" href="/resume.pdf" download>DOWNLOAD RESUME <span>↗</span></a></div>
-          <div className="social-row"><a href="https://github.com/tapasilikithareddy" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/tapasi-likitha-reddy/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
+        <div className="hero-banner"><img src="/likitha-banner.png" alt="Pixel-art mountain landscape" /><span className="live-time"><i /> ONLINE</span></div>
+        <div className="profile-card">
+          <img className="avatar" src="/likitha-avatar.png" alt="Portrait of Likitha Reddy" />
+          <div className="profile-copy"><h1>Likitha Reddy <span className="verified">●</span></h1><p>25 · I am a <strong>Software Developer</strong></p><small>● Building AI systems · Reading books · Always learning</small></div><span className="views">◉ 859</span>
         </div>
-        <div className="hero-visual" aria-label="Abstract system visualization" role="img"><div className="visual-grid" /><div className="core-node"><span>LR</span></div><div className="signal signal-a">API / 200</div><div className="signal signal-b">AI_LAYER</div><div className="signal signal-c">BUILDING...</div><div className="connector connector-a" /><div className="connector connector-b" /><div className="connector connector-c" /></div>
-        <div className="scroll-cue">SCROLL TO EXPLORE <span>↓</span></div>
+        <div className="hero-content"><p className="hero-description">Full Stack AI Engineer. I love building, breaking, and shipping things.</p><ul><li>Skilled in <strong>React, JavaScript, Node.js, Java, Python, and PostgreSQL.</strong></li><li>Learning in AI, system design, and GenAI.</li><li>Passionate about exploring new technologies and solving real-world problems.</li></ul></div>
       </section>
 
       <section className="section-shell section-block" id="about"><div className="section-heading"><span>02</span><h2>ABOUT / OVERVIEW</h2></div><div className="about-grid"><div><p className="large-copy">I&apos;m a Computer Science graduate focused on building practical software and exploring intelligent systems.</p><p>My interests span backend development, modern web technologies, AI/GenAI, and systems that solve real-world problems. I enjoy taking an idea from concept to a working application — designing the backend, connecting the pieces, debugging the difficult parts, and shipping the result.</p></div><dl className="info-panel"><div><dt>ROLE</dt><dd>Software Developer · AI Researcher</dd></div><div><dt>EDUCATION</dt><dd>B.Tech in Computer Science and Engineering</dd></div><div><dt>GRADUATION</dt><dd>2025</dd></div><div><dt>LOCATION</dt><dd>India</dd></div><div><dt>FOCUS</dt><dd>Backend · AI · GenAI · Intelligent Systems</dd></div></dl></div></section>
