@@ -1,0 +1,20 @@
+/* Theme and interaction refinements */
+:root { color-scheme: dark; }
+html.light { color-scheme: light; }
+html.light body { --bg:#f5f5f1; --panel:#ffffff; --panel-2:#f0f0eb; --text:#171717; --muted:#6d6d68; --line:#d9d9d2; background:#f5f5f1; background-image:linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px); }
+html.light body:before { opacity:.035; }
+html.light .site-header { background:rgba(245,245,241,.9); border-color:var(--line); }
+html.light .site-header .brand, html.light .main-nav { color:#171717; }
+html.light .profile-card, html.light .hero-content, html.light .project-card, html.light .research-card, html.light .contact-form input, html.light .contact-form textarea { background:var(--panel); }
+html.light .hero-content .hero-description, html.light .project-card h3, html.light .research-card h3, html.light .timeline h3 { color:var(--text); }
+html.light .hero-content li strong, html.light .profile-copy strong { color:#30302d; }
+html.light .project-visual { background:var(--panel-2); }
+.header-tools { display:flex; align-items:center; gap:18px; margin-left:auto; }
+.theme-toggle { border:1px solid var(--line); background:transparent; color:var(--muted); padding:8px 10px; font:10px ui-monospace,monospace; letter-spacing:.08em; cursor:pointer; transition:.2s; }
+.theme-toggle:hover { color:var(--text); border-color:var(--blue); }
+.main-nav { margin-left:auto; }
+.header-tools + .menu-toggle { margin-left:0; }
+.more-projects { display:flex; align-items:center; gap:24px; margin:28px 16px 0; padding:12px 0; border:0; border-bottom:1px solid var(--blue); background:transparent; color:var(--text); cursor:pointer; font:11px ui-monospace,monospace; letter-spacing:.08em; }
+.more-projects span { color:var(--blue); font-size:18px; transition:transform .2s; }
+.more-projects:hover span { transform:translateX(5px); }
+@media (max-width:760px) { .header-tools { gap:8px; }.theme-toggle { padding:7px 8px; font-size:9px; }.main-nav { margin-left:0; }.more-projects { margin-inline:0; } }

@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 
 const skillGroups = [
   ['LANGUAGES', ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL']],
@@ -32,6 +32,18 @@ const certifications = ['Google Cloud Computing Foundations', 'AWS Academy Cloud
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [sent, setSent] = useState(false)
+  const [isDark, setIsDark] = useState(true)
+  const [showMoreProjects, setShowMoreProjects] = useState(false)
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem('likitha-theme')
+    if (savedTheme === 'light') setIsDark(false)
+  }, [])
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('light', !isDark)
+    window.localStorage.setItem('likitha-theme', isDark ? 'dark' : 'light')
+  }, [isDark])
 
   function submitContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -52,14 +64,14 @@ export default function Page() {
         <nav id="main-nav" className={`main-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">
           {['about', 'skills', 'projects', 'research', 'contact'].map((item) => <a key={item} href={`#${item}`} onClick={() => setMenuOpen(false)}>{item}</a>)}
         </nav>
-        <span className="header-status"><i /> OPEN TO OPPORTUNITIES</span>
+        <div className="header-tools"><span className="header-status"><i /> OPEN TO OPPORTUNITIES</span><button className="theme-toggle" type="button" onClick={() => setIsDark((current) => !current)} aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}>{isDark ? 'LIGHT' : 'DARK'}</button></div>
       </header>
 
       <section className="hero section-shell">
         <div className="hero-banner"><img src="/likitha-banner.png" alt="Pixel-art mountain landscape" /><span className="live-time"><i /> ONLINE</span></div>
         <div className="profile-card">
           <img className="avatar" src="/likitha-avatar.png" alt="Portrait of Likitha Reddy" />
-          <div className="profile-copy"><h1>Likitha Reddy <span className="verified">●</span></h1><p>25 · I am a <strong>Software Developer</strong></p><small>● Building AI systems · Reading books · Always learning</small></div><span className="views">◉ 859</span>
+          <div className="profile-copy"><h1>Likitha Reddy <span className="verified">●</span></h1><p>22 · I am a <strong>Software Developer</strong></p><small>● Building AI systems · Reading books · Always learning</small></div><span className="views">◉ 859</span>
         </div>
         <div className="hero-content"><p className="hero-description">Full Stack AI Engineer. I love building, breaking, and shipping things.</p><ul><li>Skilled in <strong>React, JavaScript, Node.js, Java, Python, and PostgreSQL.</strong></li><li>Learning in AI, system design, and GenAI.</li><li>Passionate about exploring new technologies and solving real-world problems.</li></ul></div>
       </section>
@@ -68,7 +80,7 @@ export default function Page() {
 
       <section className="section-shell section-block" id="skills"><div className="section-heading"><span>03</span><h2>TECH STACK</h2></div><div className="skills-grid">{skillGroups.map(([group, items]) => <div className="skill-group" key={group}><h3>{group}</h3><div>{(items as string[]).map((skill, index) => <span className={index < 3 ? 'priority' : ''} key={skill}>{skill}</span>)}</div></div>)}</div></section>
 
-      <section className="section-shell section-block" id="projects"><div className="section-heading"><span>04</span><h2>SELECTED PROJECTS</h2></div><div className="projects-grid">{projects.map((project) => <article className={`project-card ${project.tone}`} key={project.title}><div className="project-visual"><span>{project.number}</span><b>{project.status}</b><div className="mini-lines" /></div><div className="project-meta">{project.type}<span>↗</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-row">{project.tech.map((tag) => <span key={tag}>{tag}</span>)}</div><div className="project-links"><span>GITHUB — NOT PROVIDED</span></div></article>)}</div></section>
+      <section className="section-shell section-block" id="projects"><div className="section-heading"><span>04</span><h2>SELECTED PROJECTS</h2></div><div className="projects-grid">{projects.slice(0, showMoreProjects ? projects.length : 4).map((project) => <article className={`project-card ${project.tone}`} key={project.title}><div className="project-visual"><span>{project.number}</span><b>{project.status}</b><div className="mini-lines" /></div><div className="project-meta">{project.type}<span>↗</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-row">{project.tech.map((tag) => <span key={tag}>{tag}</span>)}</div><div className="project-links"><span>GITHUB — NOT PROVIDED</span></div></article>)}</div><button className="more-projects" type="button" onClick={() => setShowMoreProjects((current) => !current)}>{showMoreProjects ? 'SHOW FEWER PROJECTS' : 'VIEW MORE PROJECTS'} <span>→</span></button></section>
 
       <section className="section-shell section-block research-block" id="research"><div className="section-heading"><span>05</span><h2>AI / RESEARCH</h2></div><p className="research-intro">Exploring intelligent systems beyond the surface level — from machine learning and intrusion detection to modern LLM-powered applications.</p><div className="research-grid">{[['01', 'INTELLIGENT SYSTEMS', 'Deep learning · RNN/LSTM · Attention mechanisms · Network intrusion detection'], ['02', 'GENERATIVE AI', 'LLMs · RAG · Vector databases · Qdrant · Pinecone'], ['03', 'APPLIED AI', 'Building practical applications where AI connects with software systems, APIs, data and real-world workflows.']].map(([num, title, text]) => <div className="research-card" key={num}><span>{num}</span><h3>{title}</h3><p>{text}</p></div>)}</div></section>
 
