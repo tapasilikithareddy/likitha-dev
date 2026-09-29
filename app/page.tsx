@@ -24,7 +24,7 @@ export default function Page() {
   const [showAll, setShowAll] = useState(false)
 
   return (
-    <main className="palak-page">
+    <main className="palak-page palak-clone-page">
       <header className="palak-header">
         <a href="#top" className="palak-logo">likitha<span>●</span></a>
         <button className="palak-menu" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>Menu <span>{menuOpen ? '×' : '↗'}</span></button>
@@ -37,15 +37,14 @@ export default function Page() {
       </header>
 
       <section className="palak-hero" id="top">
+        <div className="hero-image-wrap">
+          <img src="/likitha-blossom.png" alt="Cherry blossoms beside a vintage street lamp" />
+        </div>
+        <div className="hero-actions"><a href="#work">View Designs <span>↗</span></a><a href="#contact">View Resume <span>↗</span></a></div>
         <div className="hero-intro">
           <p className="eyebrow">SOFTWARE DEVELOPER · AI RESEARCHER</p>
           <h1>Likitha<br /><em>Reddy</em></h1>
           <p className="hero-lede">I build thoughtful digital products and intelligent systems where clean engineering meets curious ideas.</p>
-          <a className="circle-link" href="#contact" aria-label="Go to contact">↘</a>
-        </div>
-        <div className="hero-image-wrap">
-          <img src="/likitha-banner.png" alt="Warm illustrated landscape" />
-          <span className="image-note">based in India<br />available worldwide</span>
         </div>
       </section>
 
