@@ -118,6 +118,10 @@ html.light { --background:var(--bg); --foreground:var(--text); }
 .project-card h3 { text-transform:none; }
 .project-meta { text-transform:uppercase; }
 @media (max-width:760px) { .hero-content .hero-description { font-size:14px; } }
+
+/* Palak-style portfolio palette */
+:root { --bg: #f8f5ef; --panel: #fffdfa; --panel-2: #f2eee8; --text: #27272a; --muted: #8b8984; --line: #ded9d0; --blue: #eea5ad; color-scheme: light; }
+body { background: #f8f5ef; color: #27272a; background-image: none; }
 @media (prefers-color-scheme:light) { html:not(.light) { color-scheme:dark; } }
 :focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
 .projects-grid .project-card { min-height:0; }
